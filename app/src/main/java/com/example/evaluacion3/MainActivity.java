@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentadd = new Intent(MainActivity.this,AgregarRemedio.class);
-                startActivities(intentadd);
+                startActivity(intentadd);
             }
         });
 
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentcrud = new Intent(MainActivity.this, CRUDRemedios.class);
-                startActivities(intentcrud);
+                startActivity(intentcrud);
             }
         });
 
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentver = new Intent(MainActivity.this, ObtenerRemedios.class);
-                startActivities(intentver);
+                startActivity(intentver);
             }
         });
     }

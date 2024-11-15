@@ -12,5 +12,5 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AgregarRemedio  extends AppCompatActivity{
 
-    private Button btn,btn2
+    private Button btn,btn2;
 }
