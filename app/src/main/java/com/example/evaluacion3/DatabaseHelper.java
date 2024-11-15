@@ -30,10 +30,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + KEY_CATEGORIA + " TEXT, "
             + KEY_DESCRIPCION + " TEXT)";
 
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_REMEDIOS);
     }
+    public DatabaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
+        Log.d("table", CREATE_TABLE_REMEDIOS);
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS '" + TABLE_USER + "'");
