@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.062" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Agregar Remedios"
@@ -27,7 +27,7 @@
         tools:layout_editor_absoluteY="218dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnCrud"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Modificar Remedio"
@@ -35,7 +35,7 @@
         tools:layout_editor_absoluteY="341dp" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnVer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Visualizar Remedios"

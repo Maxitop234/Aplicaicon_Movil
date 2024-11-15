@@ -21,6 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.evaluacion3.AgregarRemedio" />
+        <activity android:name="com.example.evaluacion3.CRUDRemedios" />
+        <activity android:name="com.example.evaluacion3.ObtenerRemedios" />
     </application>
 
 </manifest>
