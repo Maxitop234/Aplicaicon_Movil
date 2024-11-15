@@ -26,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        //Le asignamos a las variables por id los botones
+        btnAdd = (Button) findViewById(R.id.btnAdd);
+        btnCrud = (Button) findViewById(R.id.btnCrud);
+        btnVer = (Button) findViewById(R.id.btnVer);
+
         //Boton para poder ir a la vista Agregar Remedios
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
