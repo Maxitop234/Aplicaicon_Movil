@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 public class ModeloRemedios implements Serializable {
 
-    private String nombre, cantidad, fechavencimiento, mg, categoria, descripcion;
-    private int id;
+    private String nombre, fechavencimiento, categoria, descripcion;
+    private int id,cantidad,mg;
 
     // Obtener y set Id
     public int getId() {
@@ -24,10 +24,10 @@ public class ModeloRemedios implements Serializable {
     }
 
     // Get y Set de Cantidad
-    public String getCantidad() {
+    public int getCantidad() {
         return cantidad;
     }
-    public void setCantidad(String cantidad) {
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -40,10 +40,10 @@ public class ModeloRemedios implements Serializable {
     }
 
     // Get y Set de de Mg
-    public String getMg() {
+    public int getMg() {
         return mg;
     }
-    public void setMg(String mg) {
+    public void setMg(int mg) {
         this.mg = mg;
     }
 

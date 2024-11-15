@@ -74,9 +74,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ModeloRemedios remedio = new ModeloRemedios();
                 remedio.setId(cursor.getInt(cursor.getColumnIndex(KEY_ID)));
                 remedio.setNombre(cursor.getString(cursor.getColumnIndex(KEY_NOMBRE)));
-                remedio.setCantidad(cursor.getString(cursor.getColumnIndex(KEY_CANTIDAD)));
+                remedio.setCantidad(cursor.getInt(cursor.getColumnIndex(KEY_CANTIDAD)));
                 remedio.setFechaVencimiento(cursor.getString(cursor.getColumnIndex(KEY_FECHAVENCIMIENTO)));
-                remedio.setMg(cursor.getString(cursor.getColumnIndex(KEY_MG)));
+                remedio.setMg(cursor.getInt(cursor.getColumnIndex(KEY_MG)));
                 remedio.setCategoria(cursor.getString(cursor.getColumnIndex(KEY_CATEGORIA)));
                 remedio.setDescripcion(cursor.getString(cursor.getColumnIndex(KEY_DESCRIPCION)));
 
