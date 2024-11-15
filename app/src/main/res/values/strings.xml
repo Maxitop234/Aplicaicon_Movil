@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Evaluacion3</string>
+    <string-array name="Remedios">
+        <item>Comprimido</item>
+        <item>Liquido</item>
+        <item>Jarabe</item>
+        <item>Polvo</item>
+        <item>Inyección</item>
+    </string-array>
 </resources>
