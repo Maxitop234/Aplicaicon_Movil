@@ -4,14 +4,18 @@ import java.io.Serializable;
 
 public class ModeloRemedios implements Serializable {
 
-    private String nombre,cantidad,fechavencimiento,mg,categoria,descripcion;
+    private String nombre, cantidad, fechavencimiento, mg, categoria, descripcion;
     private int id;
-    //Para ID
+
+    // Obtener y set Id
     public int getId() {
         return id;
     }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    //Para nombre
+    // Get y Set de Nombre
     public String getNombre() {
         return nombre;
     }
@@ -19,7 +23,7 @@ public class ModeloRemedios implements Serializable {
         this.nombre = nombre;
     }
 
-    //Para Cantidad
+    // Get y Set de Cantidad
     public String getCantidad() {
         return cantidad;
     }
@@ -27,15 +31,15 @@ public class ModeloRemedios implements Serializable {
         this.cantidad = cantidad;
     }
 
-    //Para Fecha de Vencimiento
+    // Get y Set de Fecha de Vencimiento
     public String getFechaVencimiento() {
         return fechavencimiento;
     }
-    public void setFechavencimiento(String fechavencimiento) {
+    public void setFechaVencimiento(String fechavencimiento) {
         this.fechavencimiento = fechavencimiento;
     }
 
-    //Para Miligramos
+    // Get y Set de de Mg
     public String getMg() {
         return mg;
     }
@@ -43,7 +47,7 @@ public class ModeloRemedios implements Serializable {
         this.mg = mg;
     }
 
-    //Para Categoria
+    // Get y Set de Categoria
     public String getCategoria() {
         return categoria;
     }
@@ -51,7 +55,7 @@ public class ModeloRemedios implements Serializable {
         this.categoria = categoria;
     }
 
-    //Para Descripcion
+    // Get y set de Descripcion
     public String getDescripcion() {
         return descripcion;
     }

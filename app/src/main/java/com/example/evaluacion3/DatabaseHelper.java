@@ -41,7 +41,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public long addRemedio(String nombre, int cantidad, String fechaVencimiento, int mg, String categoria, String descripcion) {
         SQLiteDatabase db = this.getWritableDatabase();
-        // Creating content values
+
         ContentValues values = new ContentValues();
         values.put(KEY_NOMBRE, nombre);
         values.put(KEY_CANTIDAD, cantidad);
@@ -50,35 +50,58 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_CATEGORIA, categoria);
         values.put(KEY_DESCRIPCION, descripcion);
 
-        // Insert row in remedios table
+
         long insert = db.insert(TABLE_USER, null, values);
 
         return insert;
     }
-    public ArrayList<RemedioModel> getAllRemedios() {
-        ArrayList<RemedioModel> remedioList = new ArrayList<>();
+    public ArrayList<ModeloRemedios> getAllRemedios() {
+        ArrayList<ModeloRemedios> remediosList = new ArrayList<>();
         String selectQuery = "SELECT * FROM " + TABLE_USER;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        // Looping through all rows and adding to list
+        // Obteniendo todos los valores de remedio
         if (cursor.moveToFirst()) {
             do {
-                RemedioModel remedio = new RemedioModel();
+                ModeloRemedios remedio = new ModeloRemedios();
                 remedio.setId(cursor.getInt(cursor.getColumnIndex(KEY_ID)));
                 remedio.setNombre(cursor.getString(cursor.getColumnIndex(KEY_NOMBRE)));
-                remedio.setCantidad(cursor.getInt(cursor.getColumnIndex(KEY_CANTIDAD)));
+                remedio.setCantidad(cursor.getString(cursor.getColumnIndex(KEY_CANTIDAD)));
                 remedio.setFechaVencimiento(cursor.getString(cursor.getColumnIndex(KEY_FECHAVENCIMIENTO)));
-                remedio.setMg(cursor.getInt(cursor.getColumnIndex(KEY_MG)));
+                remedio.setMg(cursor.getString(cursor.getColumnIndex(KEY_MG)));
                 remedio.setCategoria(cursor.getString(cursor.getColumnIndex(KEY_CATEGORIA)));
                 remedio.setDescripcion(cursor.getString(cursor.getColumnIndex(KEY_DESCRIPCION)));
 
-                // Adding to list
-                remedioList.add(remedio);
+                // Agrgear todo a la lista
+                remediosList.add(remedio);
             } while (cursor.moveToNext());
         }
         cursor.close();
-        return remedioList;
+        return remediosList;
     }
+    public int updateRemedio(int id, String nombre, int cantidad, String fechaVencimiento, int mg, String categoria, String descripcion) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // Establecimiento
+        ContentValues values = new ContentValues();
+        values.put(KEY_NOMBRE, nombre);
+        values.put(KEY_CANTIDAD, cantidad);
+        values.put(KEY_FECHAVENCIMIENTO, fechaVencimiento);
+        values.put(KEY_MG, mg);
+        values.put(KEY_CATEGORIA, categoria);
+        values.put(KEY_DESCRIPCION, descripcion);
+
+        // Update la tabla usando la Id
+        return db.update(TABLE_USER, values, KEY_ID + " = ?", new String[]{String.valueOf(id)});
+    }
+    public void deleteUSer(int id) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_USER, KEY_ID + " = ?",
+                new String[]{String.valueOf(id)});
+    }
+
+
 
 }
