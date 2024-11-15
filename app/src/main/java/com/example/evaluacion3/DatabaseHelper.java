@@ -64,7 +64,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public ArrayList<ModeloRemedios> getAllRemedios() {
         ArrayList<ModeloRemedios> remediosList = new ArrayList<>();
-        String selectQuery = "SELECT * FROM " + TABLE_USER;
+        // Modify the SQL query to order the results by 'nombre' alphabetically
+        String selectQuery = "SELECT * FROM " + TABLE_USER + " ORDER BY " + KEY_NOMBRE + " ASC";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
@@ -80,7 +81,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 remedio.setCategoria(cursor.getString(cursor.getColumnIndex(KEY_CATEGORIA)));
                 remedio.setDescripcion(cursor.getString(cursor.getColumnIndex(KEY_DESCRIPCION)));
 
-                // Agrgear todo a la lista
+                // Agregar todo a la lista
                 remediosList.add(remedio);
             } while (cursor.moveToNext());
         }
