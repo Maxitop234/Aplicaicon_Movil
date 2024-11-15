@@ -23,7 +23,7 @@ public class ModeloRemedios implements Serializable {
     public String getCantidad() {
         return cantidad;
     }
-    public void setName(String cantidad) {
+    public void setCantidad(String cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -31,7 +31,7 @@ public class ModeloRemedios implements Serializable {
     public String getFechaVencimiento() {
         return fechavencimiento;
     }
-    public void setName(String fechavencimiento) {
+    public void setFechavencimiento(String fechavencimiento) {
         this.fechavencimiento = fechavencimiento;
     }
 
