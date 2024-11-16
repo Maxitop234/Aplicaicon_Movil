@@ -64,7 +64,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public ArrayList<ModeloRemedios> getAllRemedios() {
         ArrayList<ModeloRemedios> remediosList = new ArrayList<>();
-        // Modify the SQL query to order the results by 'nombre' alphabetically
+        // Que muestre los resultados alfabeticamente
         String selectQuery = "SELECT * FROM " + TABLE_USER + " ORDER BY " + KEY_NOMBRE + " ASC";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -105,7 +105,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public void onOpen(SQLiteDatabase db) {
         super.onOpen(db);
-        // Enabling SQL logging
+        // Logear el SQL
         db.execSQL("PRAGMA sqlite_trace = ON;");
     }
 

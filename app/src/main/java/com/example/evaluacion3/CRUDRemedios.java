@@ -126,7 +126,7 @@ public class CRUDRemedios extends AppCompatActivity {
                         databaseHelper.deleteUSer(modeloRemedios.getId());
                         navigateToMainActivity();
                     }
-                }, 5000); // 5-second delay before deletion
+                }, 4000); // 4 segundos de espera
             }
         });
 
