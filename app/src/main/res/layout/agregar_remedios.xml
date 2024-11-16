@@ -51,7 +51,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="248dp"
         android:ems="10"
-        android:inputType="time"
+        android:focusable="false"
+        android:clickable="true"
         android:hint="Fecha de Vencimiento"
         app:layout_constraintBottom_toTopOf="@+id/AgregarMG"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,6 +60,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.062" />
+
 
     <EditText
         android:id="@+id/AgregarMG"
