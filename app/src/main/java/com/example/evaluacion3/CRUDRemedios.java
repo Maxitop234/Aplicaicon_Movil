@@ -3,6 +3,7 @@ package com.example.evaluacion3;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,7 +20,7 @@ public class CRUDRemedios extends AppCompatActivity {
     private ModeloRemedios modeloRemedios;
     private EditText ModificarNombreRemedio, ModificarCantidadProducto, ModificarFechaVencimiento, ModificarMG, ModificarDescripcion;
     private Spinner ModificarSpinner;
-    private Button btnModificar;
+    private Button btnModificar, btnEliminar, btnSalir;
     private DatabaseHelper databaseHelper;
 
     @Override
@@ -39,6 +40,8 @@ public class CRUDRemedios extends AppCompatActivity {
         ModificarSpinner = findViewById(R.id.ModificarSpinner);
         ModificarDescripcion = findViewById(R.id.ModificarDescripcion);
         btnModificar = findViewById(R.id.btnModificar);
+        btnEliminar = findViewById(R.id.btnEliminar);
+        btnSalir = findViewById(R.id.btnSalir);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.Remedios, android.R.layout.simple_spinner_item);
@@ -101,7 +104,7 @@ public class CRUDRemedios extends AppCompatActivity {
 
                     if (isUpdated > 0) {
                         Toast.makeText(CRUDRemedios.this, "Remedio actualizado con éxito", Toast.LENGTH_SHORT).show();
-                        finish();
+                        navigateToMainActivity();
                     } else {
                         Toast.makeText(CRUDRemedios.this, "Error al actualizar remedio", Toast.LENGTH_SHORT).show();
                     }
@@ -111,5 +114,33 @@ public class CRUDRemedios extends AppCompatActivity {
                 }
             }
         });
+
+        btnEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CRUDRemedios.this, "Remedio Eliminado :)", Toast.LENGTH_LONG).show();
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        databaseHelper.deleteUSer(modeloRemedios.getId());
+                        navigateToMainActivity();
+                    }
+                }, 5000); // 5-second delay before deletion
+            }
+        });
+
+        btnSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToMainActivity();
+            }
+        });
+    }
+
+    private void navigateToMainActivity() {
+        Intent intent = new Intent(CRUDRemedios.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

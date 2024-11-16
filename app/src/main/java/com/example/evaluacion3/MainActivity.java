@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         btnCrud.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentcrud = new Intent(MainActivity.this, CRUDRemedios.class);
-                startActivity(intentcrud);
+                Intent intentver = new Intent(MainActivity.this, ObtenerRemedios.class);
+                startActivity(intentver);
             }
         });
 
