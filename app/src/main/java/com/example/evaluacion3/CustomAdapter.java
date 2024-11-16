@@ -54,11 +54,11 @@ public class CustomAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        // Set the data for each view
+        //
         holder.Nombre.setText(Lista_remedios.get(position).getNombre());
-        holder.Cantidad.setText(Lista_remedios.get(position).getCantidad());
+        holder.Cantidad.setText(String.valueOf(Lista_remedios.get(position).getCantidad())); // HERMANO ESTA CUESTION DIO 50000 ERRORES
         holder.Fecha_Vencimiento.setText(Lista_remedios.get(position).getFechaVencimiento());
-        holder.mg.setText(Lista_remedios.get(position).getMg());
+        holder.mg.setText(String.valueOf(Lista_remedios.get(position).getMg()));
         holder.Presentacion.setText(Lista_remedios.get(position).getCategoria());
         holder.Descripcion.setText(Lista_remedios.get(position).getDescripcion());
 

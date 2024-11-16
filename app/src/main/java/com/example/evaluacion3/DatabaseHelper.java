@@ -103,6 +103,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Update la tabla usando la Id
         return db.update(TABLE_USER, values, KEY_ID + " = ?", new String[]{String.valueOf(id)});
     }
+    public void onOpen(SQLiteDatabase db) {
+        super.onOpen(db);
+        // Enabling SQL logging
+        db.execSQL("PRAGMA sqlite_trace = ON;");
+    }
+
     public void deleteUSer(int id) {
 
         SQLiteDatabase db = this.getWritableDatabase();
